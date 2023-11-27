@@ -26,7 +26,7 @@ def loginPage(request):
         password = request.POST.get('password')
 
         try:
-            user = User.objects.get(email=email)
+            user = User.objects.get(email=email) #從資料庫找email
         except:
             messages.error(request, 'User does not exist')
 
@@ -39,7 +39,7 @@ def loginPage(request):
             messages.error(request, 'Username OR password does not exit')
 
     context = {'page': page}
-    return render(request, 'base/login_register.html', context)
+    return render(request, 'base/login_register.html', context) #context 字典被傳遞給 render() 函數，並用於渲染模板 'base/login_register.html'
 
 
 def logoutUser(request):
@@ -60,9 +60,9 @@ def registerPage(request):
             return redirect('home')
         else:
             messages.error(request, 'An error occurred during registration')
-
+        
     return render(request, 'base/login_register.html', {'form': form})
-
+    
 
 def home(request):
     q = request.GET.get('q') if request.GET.get('q') != None else ''

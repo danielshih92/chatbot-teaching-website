@@ -18,7 +18,7 @@
           {% csrf_token %}
           <div class="form__group form__group">
             <label for="room_name">Email</label>
-            <input id="username" name="email" type="email" placeholder="e.g. dennis_ivy@email.com />
+            <input id="username" name="email" type="email" placeholder="e.g. dennis_ivy@email.com" />
           </div>
           <div class=" form__group">
             <label for="password">Password</label>
@@ -48,7 +48,7 @@
       </div>
     </div>
   </div>
-  {% else %}
+  {% else %} <!--used for register-->
   <div class="container">
     <div class="layout__box">
       <div class="layout__boxHeader">
@@ -61,7 +61,20 @@
 
         <form class="form" action="" method="POST">
           {% csrf_token %}
-
+          <div id="parent">
+            <label for="user_type">Identity:</label>
+            <div class="radio-option">
+              <div class="radio-item">
+                <label for="student">Student</label>
+                <input type="radio" id="student" name="user_type" value="student">
+              </div>
+              <div class="radio-item">
+                <label for="teacher">Teacher</label>
+                <input type="radio" id="teacher" name="user_type" value="teacher">  
+              </div>
+            </div>
+          </div>          
+        </div>
           {% for field in form %}
           <div class="form__group form__group">
             <label for="room_name">{{field.label}}</label>
