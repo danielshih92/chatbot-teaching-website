@@ -12,7 +12,7 @@ git clone https://github.com/divanov11/StudyBud.git
 
 --> Move into the directory where we have the project files : 
 ```bash
-cd StudyBud
+cd chatbot-teaching-website
 
 ```
 
