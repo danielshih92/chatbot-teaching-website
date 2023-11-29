@@ -12,7 +12,7 @@ git clone https://github.com/divanov11/StudyBud.git
 
 --> Move into the directory where we have the project files : 
 ```bash
-cd StudyBud
+cd chatbot-teaching-website
 
 ```
 
@@ -22,13 +22,13 @@ cd StudyBud
 pip install virtualenv
 
 # Then we create our virtual environment
-virtualenv envname
+virtualenv env
 
 ```
 
 --> Activate the virtual environment :
 ```bash
-envname\scripts\activate
+env\Scripts\activate
 
 ```
 
