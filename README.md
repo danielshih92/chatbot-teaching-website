@@ -22,13 +22,13 @@ cd chatbot-teaching-website
 pip install virtualenv
 
 # Then we create our virtual environment
-virtualenv envname
+virtualenv env
 
 ```
 
 --> Activate the virtual environment :
 ```bash
-envname\scripts\activate
+env\Scripts\activate
 
 ```
 
