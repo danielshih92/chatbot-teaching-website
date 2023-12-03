@@ -4,8 +4,8 @@ from base.models import Room
 from .serializers import RoomSerializer
 from base.api import serializers
 
-
-@api_view(['GET'])
+#shows the routes for the api
+@api_view(['GET']) # only allows get requests
 def getRoutes(request):
     routes = [
         'GET /api',
@@ -13,8 +13,7 @@ def getRoutes(request):
         'GET /api/rooms/:id'
     ]
     return Response(routes)
-
-
+#shows all the rooms
 @api_view(['GET'])
 def getRooms(request):
     rooms = Room.objects.all()
