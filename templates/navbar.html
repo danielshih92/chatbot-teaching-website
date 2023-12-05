@@ -2,6 +2,10 @@
 <header class="header header--loggedIn">
     <div class="container">
         <a href="{% url 'home' %}" class="header__logo">
+            <img src="{% static 'images/real_book.png' %}" />
+        </a>
+        
+        <a href="{% url 'home' %}" class="header__logo">
             <img src="{% static 'images/logo.svg' %}" />
             <h1>Bot-Learning</h1>
         </a>
@@ -65,7 +69,7 @@
                     </svg>
                     Logout</a>
             </div>
-        </nav>  
+        </nav>
     </div>
 </header>
 
