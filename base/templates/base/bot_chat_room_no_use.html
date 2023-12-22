@@ -1,8 +1,7 @@
-<!-- 
-  產生一個聊天機器人的按鈕，點擊按鈕後會出現聊天機器人的視窗
- -->
+{% extends 'main.html' %}
 {% load static %}
-<!-- HTML -->
+{% block content %}
+
 <style>
   .chatbot-container {
     position: fixed;  
@@ -151,8 +150,4 @@
 </script>
 
 </body>
-
-
-
-
-  
+{% endblock content %}

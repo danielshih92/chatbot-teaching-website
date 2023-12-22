@@ -206,4 +206,4 @@ def activityPage(request):
     return render(request, 'base/activity.html', {'room_messages': room_messages})
 
 def bot_chat(request):
-    return render(request, 'base/bot_chat_room.html')
+    return render(request, 'base/bot_chat_room_no_use.html')
