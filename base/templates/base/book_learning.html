@@ -1,0 +1,87 @@
+{% extends 'main.html' %}
+{% load static %}
+{% block content %}
+<style>
+  h1 {
+  text-align: center; /* Center the heading */
+  font-size: 2em; /* Increase the size of the font, adjust as needed */
+  margin-top: 0.5em; /* Adjust the top margin of the heading, adjust as needed */
+  margin-bottom: 0.5em; /* Adjust the bottom margin of the heading, adjust as needed */
+}
+  .figure-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start; /* 讓圖片從左側開始排列 */
+    margin: auto; /* 水平居中容器 */
+    max-width: 100%; /* 允許容器盡可能寬 */
+}
+  .figure-container figure {
+  flex: 0 0 calc(33.33% - 20px); /* Same as before */
+  border: 1px solid #ccc;
+  padding: 10px;
+  margin: 10px; /* You can adjust this if you want more space around each figure */
+  background-color: #51546e;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.figure-container figure img {
+  width: 100%; /* Adjust the width to keep the aspect ratio if needed */
+  height: 150px; /* Example fixed height - change as necessary */
+  object-fit: cover; /* This will cover the area without stretching the image */
+}
+
+.figure-container figure figcaption {
+  text-align: center;
+  background-color: #696d97; /* Added background color for the caption */
+  color: #ffffff; /* Optional: Change the text color if needed for better contrast */
+  padding: 5px; /* Add padding to give some space inside the caption area */
+  width: 100%; /* Ensure the background color covers the caption area */
+  box-sizing: border-box; /* Ensure padding does not increase the total width */
+
+}
+
+</style>
+<h1>請挑選你想要學習的領域~</h1>
+<div class="figure-container">
+  <figure>
+    <a href="https://example.com/page1.html"><img src="{% static 'images/book_img/python-logo.png' %}" alt="Image 1"></a>
+    <figcaption>Python</figcaption>
+  </figure>
+  <figure>
+    <a href="https://example.com/page2.html"><img src="{% static 'images/book_img/raspberry.png' %}" alt="Image 2"></a>
+    <figcaption>樹梅派</figcaption>
+  </figure>
+  <figure>
+    <a href="https://example.com/page3.html"><img src="{% static 'images/book_img/chain_rule.png' %}" alt="Image 3"></a>
+    <figcaption>嵌入式系統</figcaption>
+  </figure>
+  <figure>
+    <a href="https://example.com/page4.html"><img src="{% static 'images/book_img/chain_rule.png' %}" alt="Image 4"></a>
+    <figcaption>Caption for Image 4</figcaption>
+  </figure>
+  <figure>
+    <a href="https://example.com/page5.html"><img src="{% static 'images/book_img/chain_rule.png' %}" alt="Image 5"></a>
+    <figcaption>Caption for Image 5</figcaption>
+  </figure>
+  <figure>
+    <a href="https://example.com/page6.html"><img src="{% static 'images/book_img/chain_rule.png' %}" alt="Image 6"></a>
+    <figcaption>Caption for Image 6</figcaption>
+  </figure>
+  <figure>
+    <a href="https://example.com/page7.html"><img src="{% static 'images/book_img/chain_rule.png' %}" alt="Image 7"></a>
+    <figcaption>Caption for Image 7</figcaption>
+  </figure>
+  <figure>
+    <a href="https://example.com/page8.html"><img src="{% static 'images/book_img/chain_rule.png' %}" alt="Image 8"></a>
+    <figcaption>Caption for Image 8</figcaption>
+  </figure>
+  <figure>
+    <a href="https://example.com/page9.html"><img src="{% static 'images/book_img/chain_rule.png' %}" alt="Image 9"></a>
+    <figcaption>Caption for Image 9</figcaption>
+  </figure>
+</div>
+
+{% endblock %}

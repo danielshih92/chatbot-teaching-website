@@ -111,6 +111,8 @@ def userProfile(request, pk):
                'room_messages': room_messages, 'topics': topics}
     return render(request, 'base/profile.html', context)
 
+def book_learning(request):
+    return render(request, 'base/book_learning.html')
 
 @login_required(login_url='login')
 def createRoom(request):
