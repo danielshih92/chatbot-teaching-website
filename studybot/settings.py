@@ -42,6 +42,8 @@ INSTALLED_APPS = [
 
     'rest_framework',
     "corsheaders",
+
+    'chat_app.apps.ChatAppConfig',
 ]
 
 AUTH_USER_MODEL = 'base.User'
