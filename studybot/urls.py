@@ -8,7 +8,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('base.urls')),
     path('api/', include('base.api.urls')),
-    path('', include('chat_app.urls')),
+    path('chat_app/', include(('chat_app.urls','chat_app'), namespace='chat_app'))
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
