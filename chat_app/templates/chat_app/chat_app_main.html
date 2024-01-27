@@ -93,7 +93,7 @@
   <div id="botWindow" class="container_Bot fade-in-transition hidden">
     <div class="header_Bot">
       <div class="header_Bot">
-        <h1>Aapi</h1>
+        <h1>Teacher-Bot</h1>
         <img src='{% static "chat_app/images/bot.png" %}'>
       </div>
       <button class="hideBot fade-out-transition" type="button" onclick="hideBotFun()">&times;</button>
@@ -123,10 +123,9 @@
     <div class="aapi-popup-dialog">
       <span>Hi there, I'm Teacher Bot. <br>How may I help you today?</span>
     </div>
-    <div class="attention"></div>
     <div class="down-triangle"></div>
   </div>
-  <button id="showBotbtn" class="showBot fade-in-transition" onclick="showBotFun()"><img src="{% static 'chat_app/images/robot.svg' %}" /></button>
+  <button id="showBotbtn" class="showBot fade-in-transition" onclick="showBotFun()" title="Hi! I am Teacher Bot"><img src="{% static 'chat_app/images/robot.svg' %}" /></button>
 
 
   <!-- ajax string -->
@@ -173,7 +172,7 @@
           html += userHtmlTag + item.message + '</p></div>'
         }
       });
-      const chatMessage = document.querySelector("._Bot");
+      const chatMessage = document.querySelector(".body_Bot");
       chatMessage.innerHTML = html;
     }
 

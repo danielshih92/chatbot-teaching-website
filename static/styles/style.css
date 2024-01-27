@@ -1339,7 +1339,7 @@ a {
 }
 
 .aapi-popup-dialog {
-  position: absolute;
+  position: fixed;
   right: 30px;
   bottom: 145px;
   font-size: 18px;
@@ -1347,17 +1347,17 @@ a {
   border: none;
   border-radius: var(--chatBot_windowCommonRadius);
   outline: none;
-  background-color: dodgerblue;
-  color: #f8f8f8;
+  background-color: #71c6dd;
+  color: var(--color-dark);
 }
 
 .attention {
   position: fixed;
   right: 25px;
-  bottom: 195px;
+  bottom: 205px;
   padding: 10px;
   border-radius: 100%;
-  background-color: red;
+  background-color: rgb(227, 231, 4);
 }
 
 .down-triangle {
@@ -1367,7 +1367,7 @@ a {
   right: 68px;
   bottom: 125px;
   border: 20px solid transparent;
-  border-top: 20px solid dodgerblue;
+  border-top: 20px solid var(--color-main);
   border-bottom: 0;
 }
 

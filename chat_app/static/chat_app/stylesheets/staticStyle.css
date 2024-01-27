@@ -179,7 +179,7 @@ body {
 }
 
 .aapi-popup-dialog {
-  position: absolute;
+  position: fixed;
   right: 30px;
   bottom: 145px;
   font-size: 18px;
@@ -189,15 +189,6 @@ body {
   outline: none;
   background-color: dodgerblue;
   color: #f8f8f8;
-}
-
-.attention {
-  position: fixed;
-  right: 25px;
-  bottom: 195px;
-  padding: 10px;
-  border-radius: 100%;
-  background-color: red;
 }
 
 .down-triangle {
