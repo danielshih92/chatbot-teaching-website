@@ -12,6 +12,7 @@
   --color-bg: #2d2d39;
   --color-success: #5dd693;
   --color-error: #fc4b0b;
+  --color-chat-bot: #71c6dd;
   --chatBot_ZIndex: 100;
   /*Z-Index to keep Chat Bot top of all other elements*/
   --chatBot_windowCommonRadius: 5px;
@@ -1193,8 +1194,8 @@ a {
   display: flex;
   flex-direction: column;
   box-shadow: 10px 10px 5px #aaaaaa;
-  background-color: dodgerblue;
-  border: 2px solid dodgerblue;
+  background-color: var(--color-chat-bot);
+  border: 2px solid var(--color-chat-bot);
   border-radius: var(--chatBot_windowCommonRadius);
   z-index: var(--chatBot_ZIndex);
 }
@@ -1249,13 +1250,14 @@ a {
 }
 
 .bot_message {
-  background-color: dodgerblue;
+  background-color: var(--color-chat-bot);
   padding: 10px;
   color: white;
   width: fit-content;
   border-top-left-radius: 0px !important;
   border-radius: 10px;
   margin-bottom: 15px;
+  font-weight: bold;
 }
 
 .user_message {
@@ -1333,7 +1335,7 @@ a {
   font-size: 35px;
   border: none;
   outline: none;
-  background-color: dodgerblue;
+  background-color: var(--color-chat-bot);
   color: white;
   cursor: pointer;
 }
