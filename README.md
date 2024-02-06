@@ -84,16 +84,16 @@ python manage.py runserver
 &nbsp; 
 <br>
 <p align="center">
-  Third Image
+  Bot conservation preview
 </p>
-<img src="">
+<img src="https://drive.usercontent.google.com/download?id=1C7EpkGHxxKopF52M4vVlRdaCtursEphY&export=view&authuser=0">
 </td> 
 <td width="50%">
 <br>
 <p align="center">
   Fourth Image
 </p>
-<img src="">  
+<img src="https://drive.usercontent.google.com/download?id=16fqMMmRqVfJ038kQebjFULaySEqwk3p_&export=view&authuser=0">  
 </td>
 </tr>
 </table>
