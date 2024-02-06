@@ -91,7 +91,7 @@ python manage.py runserver
 <td width="50%">
 <br>
 <p align="center">
-  Fourth Image
+  Some teaching materials
 </p>
 <img src="https://drive.usercontent.google.com/download?id=16fqMMmRqVfJ038kQebjFULaySEqwk3p_&export=view&authuser=0">  
 </td>
