@@ -40,7 +40,7 @@ pip install -r requirements.txt
 
 --> Setting up Environment Variables :
 
-Create a file named `.env` in the root directory of the project. Add the following variables to configure your environment:
+Create a file named `.env` in the root directory of the project. Add the following variables to configure your environment:\n
 You can get free openai APIKEY here: https://github.com/chatanywhere/GPT_API_free?tab=readme-ov-file
 ```bash
 API_KEY="your_openai_api_key"
