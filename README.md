@@ -76,6 +76,6 @@ python manage.py runserver
 <p align="center">
   Room Conversation Preview
 </p>
-<img src=">  
+<img src="https://drive.usercontent.google.com/download?id=1Ws0gZjKW-Q3CCLZoWuHdK6ApgwO-pbRP&export=view&authuser=0">  
 </td>
 </table>
