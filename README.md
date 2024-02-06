@@ -38,8 +38,14 @@ pip install -r requirements.txt
 
 ```
 
-#
+--> Setting up Environment Variables :
 
+Create a file named `.env` in the root directory of the project. Add the following variables to configure your environment:
+
+```bash
+API_KEY="your_openai_api_key"
+SECRET_KEY = "yout_secret_key"
+```
 ### Running the App
 
 --> To run the App, we use :
