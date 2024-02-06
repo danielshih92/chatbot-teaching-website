@@ -41,7 +41,8 @@ pip install -r requirements.txt
 --> Setting up Environment Variables :
 
 Create a file named `.env` in the root directory of the project. Add the following variables to configure your environment:  
-You can get free openai APIKEY here: https://github.com/chatanywhere/GPT_API_free?tab=readme-ov-file
+You can get free openai APIKEY here: https://github.com/chatanywhere/GPT_API_free?tab=readme-ov-file  
+Build a django project and copy the SECRET_KEY into .env file
 ```bash
 API_KEY="your_openai_api_key"
 SECRET_KEY = "yout_secret_key"
