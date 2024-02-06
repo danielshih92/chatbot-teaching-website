@@ -45,7 +45,7 @@ You can get free openai APIKEY here: https://github.com/chatanywhere/GPT_API_fre
 Build a django project and copy the SECRET_KEY into `.env` file
 ```bash
 API_KEY="your_openai_api_key"
-SECRET_KEY = "yout_secret_key"
+SECRET_KEY = "your_secret_key"
 ```
 ### Running the App
 
@@ -69,7 +69,7 @@ python manage.py runserver
 <p align="center">
   Feed Home
 </p>
-<img src="">
+<img src="https://drive.usercontent.google.com/download?id=1xQ6gmXBKKIg35JKHtekMdwwgmPYt2J0o&export=view&authuser=0">
 </td> 
 <td width="50%">
 <br>
