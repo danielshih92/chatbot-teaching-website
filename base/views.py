@@ -1,11 +1,12 @@
 from django.shortcuts import render, redirect
-from django.http import HttpResponse
+from django.http import HttpResponse, JsonResponse
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.db.models import Q
 from django.contrib.auth import authenticate, login, logout
 from .models import Room, Topic, Message, User
 from .forms import RoomForm, UserForm, MyUserCreationForm
+
 
 # Create your views here.
 
@@ -82,7 +83,11 @@ def home(request):
                'room_count': room_count, 'room_messages': room_messages}
     return render(request, 'base/home.html', context)
 
+#=======================================================================================================
+# openai 回復
 
+
+#=======================================================================================================
 def room(request, pk):
     room = Room.objects.get(id=pk)
     room_messages = room.message_set.all()
