@@ -260,7 +260,7 @@
 
     // Disable the send button if there is no text in query field
 
-    const regex = /[A-Za-z0-9]/
+    const regex = /\S/  //#/[A-Za-z0-9]/ //
     let submit_btn = document.querySelector(".submit_btn");
     function checkText() {
       const inp_string = document.querySelector("#query").value

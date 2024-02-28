@@ -119,6 +119,9 @@ def userProfile(request, pk):
 def book_learning(request):
     return render(request, 'base/book_learning.html')
 
+def data_structure(request):
+    return render(request, 'base/data_structure.html')
+                  
 @login_required(login_url='login')
 def createRoom(request):
     form = RoomForm()
