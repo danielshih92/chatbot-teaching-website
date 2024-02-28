@@ -38,8 +38,15 @@ pip install -r requirements.txt
 
 ```
 
-#
+--> Setting up Environment Variables :
 
+Create a file named `.env` in the root directory of the project. Add the following variables to configure your environment:  
+You can get free openai APIKEY here: https://github.com/chatanywhere/GPT_API_free?tab=readme-ov-file  
+Build a django project and copy the SECRET_KEY into `.env` file
+```bash
+API_KEY="your_openai_api_key"
+SECRET_KEY = "your_secret_key"
+```
 ### Running the App
 
 --> To run the App, we use :
@@ -52,7 +59,7 @@ python manage.py runserver
 
 #
 
-### App Preview :
+### App Preview:
 
 <table width="100%"> 
 <tr>
@@ -62,13 +69,32 @@ python manage.py runserver
 <p align="center">
   Feed Home
 </p>
-<img src="">
+<img src="https://drive.usercontent.google.com/download?id=1xQ6gmXBKKIg35JKHtekMdwwgmPYt2J0o&export=view&authuser=0">
 </td> 
 <td width="50%">
 <br>
 <p align="center">
   Room Conversation Preview
 </p>
-<img src=">  
+<img src="https://drive.usercontent.google.com/download?id=1Ws0gZjKW-Q3CCLZoWuHdK6ApgwO-pbRP&export=view&authuser=0">  
 </td>
+</tr>
+<tr>
+<td width="50%">      
+&nbsp; 
+<br>
+<p align="center">
+  Bot conservation preview
+</p>
+<img src="https://drive.usercontent.google.com/download?id=1C7EpkGHxxKopF52M4vVlRdaCtursEphY&export=view&authuser=0">
+</td> 
+<td width="50%">
+<br>
+<p align="center">
+  Some teaching materials
+</p>
+<img src="https://drive.usercontent.google.com/download?id=16fqMMmRqVfJ038kQebjFULaySEqwk3p_&export=view&authuser=0">  
+</td>
+</tr>
 </table>
+
