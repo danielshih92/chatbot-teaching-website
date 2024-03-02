@@ -60,8 +60,13 @@ def registerPage(request):
             login(request, user)
             return redirect('home')
         else:
-            messages.error(request, 'An error occurred during registration')
-        
+            password_errors = form.errors.get('password2')
+            if password_errors:
+                for error in password_errors:
+                    messages.error(request, error)
+            else:
+                messages.error(request, 'An error occurred during registration')
+            
     return render(request, 'base/login_register.html', {'form': form})
     
 
@@ -120,7 +125,7 @@ def book_learning(request):
     return render(request, 'base/book_learning.html')
 
 def data_structure(request):
-    return render(request, 'base/data_structure.html')
+    return render(request, 'base/data_structure_video.html')
                   
 @login_required(login_url='login')
 def createRoom(request):

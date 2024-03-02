@@ -1,0 +1,28 @@
+{% extends 'main_course.html' %}
+{% load static %}
+{% block content %}
+<div class="container">
+  <div class="row">
+    <!-- Video Section -->
+    <div class="col-md-8">
+      <video id="courseVideo" width="100%" controls>
+        <source src="{{ selected_video.url }}" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+    </div>
+    
+    <!-- Course List Section -->
+    <div class="col-md-4">
+      <div class="course-list">
+        {% for course in courses %}
+          <div class="course-item">
+            <a href="{% url 'course_detail' course.id %}">
+              {{ course.title }}
+            </a>
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
