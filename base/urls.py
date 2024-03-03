@@ -20,5 +20,6 @@ urlpatterns = [
     path('activity/', views.activityPage, name="activity"),
     path('bot-chat/', views.bot_chat, name="bot_chat"),
     path('book-learning/', views.book_learning, name="book-learning"),
-    path('data_structure/', views.data_structure, name="data_structure"),
+    # path('data_structure/', views.data_structure, name="data_structure"),
+    path('data_structure/<int:course_id>/', views.data_structure, name='data_structure'),
 ]

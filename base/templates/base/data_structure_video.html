@@ -5,8 +5,9 @@
   <div class="row">
     <!-- Video Section -->
     <div class="col-md-8">
+      <h1>{{ course.title }}</h1>
       <video id="courseVideo" width="100%" controls>
-        <source src="{{ selected_video.url }}" type="video/mp4">
+        <source src="{% static video_path %}" type="video/mp4">
         Your browser does not support the video tag.
       </video>
     </div>
@@ -14,15 +15,27 @@
     <!-- Course List Section -->
     <div class="col-md-4">
       <div class="course-list">
-        {% for course in courses %}
-          <div class="course-item">
-            <a href="{% url 'course_detail' course.id %}">
-              {{ course.title }}
-            </a>
-          </div>
-        {% endfor %}
+        <ul>
+          <li class="course-item">
+            單元一
+            <button class="arrow">
+              <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 32 32">
+                <title>chevron-right</title>
+                <path d="M16 21l-13-13h-3l16 16 16-16h-3l-13 13z"></path>
+              </svg>
+            </button>
+            <ul class="hidden">
+              {% for course in courses %}
+                <li><a href="{% url 'data_structure' course.id %}">{{ course.title }}</a></li>
+              {% endfor %}
+            </ul>
+          </li>
+          <li>單元二</li>
+          <li>單元三</li>
+        </ul>
       </div>
     </div>
   </div>
 </div>
 {% endblock %}
+

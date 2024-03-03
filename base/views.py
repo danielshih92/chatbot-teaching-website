@@ -1,10 +1,10 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.http import HttpResponse, JsonResponse
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.db.models import Q
 from django.contrib.auth import authenticate, login, logout
-from .models import Room, Topic, Message, User
+from .models import Room, Topic, Message, User, Course
 from .forms import RoomForm, UserForm, MyUserCreationForm
 
 
@@ -88,11 +88,6 @@ def home(request):
                'room_count': room_count, 'room_messages': room_messages}
     return render(request, 'base/home.html', context)
 
-#=======================================================================================================
-# openai 回復
-
-
-#=======================================================================================================
 def room(request, pk):
     room = Room.objects.get(id=pk)
     room_messages = room.message_set.all()
@@ -124,9 +119,13 @@ def userProfile(request, pk):
 def book_learning(request):
     return render(request, 'base/book_learning.html')
 
-def data_structure(request):
-    return render(request, 'base/data_structure_video.html')
-                  
+# 渲染資料結構課程
+def data_structure(request, course_id):
+    course = get_object_or_404(Course, id=course_id)
+    video_path = 'course_video/data_structure/video_{}.mp4'.format(course.id)
+    courses = Course.objects.all()
+    return render(request, 'base/data_structure_video.html', {'course': course, 'courses': courses, 'video_path': video_path})
+
 @login_required(login_url='login')
 def createRoom(request):
     form = RoomForm()
