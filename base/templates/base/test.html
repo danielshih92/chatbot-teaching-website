@@ -1,23 +1,49 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Data Structure Course</title>
-<link rel="stylesheet" href="style course.css">
-</head>
-<body>
-<div class="navbar">Navbar Content</div>
-<div class="main-content">
-    <img src="network-diagram.png" alt="Network Diagram">
-</div>
-<aside class="sidebar">
-    <div class="progress-container">
-        <div class="progress-circle" data-percentage="1%">
-            <span>1%</span>
-        </div>
-        <button class="progress-button">Button Text</button>
+{% extends 'main_course.html' %}
+{% load static %}
+{% block content %}
+<!-- Sidebar -->
+<style>
+
+</style>
+
+
+<div class="container">
+  <div class="row">
+    <!-- Video Section -->
+    <div class="col-md-8">
+      <h1>{{ course.title }}</h1>
+      <video id="courseVideo" width="100%" controls>
+        <source src="{% static video_path %}" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
     </div>
-</aside>
-</body>
-</html>
+    
+    <!-- Course List Section -->
+    <div class="col-md-4">
+      <div class="course-list">
+        {% for unit in units %}
+          <div class="unit-item">
+            <!-- Unit Header -->
+            <a data-toggle="collapse" href="#collapse{{unit.id}}" role="button" aria-expanded="false" aria-controls="collapse{{unit.id}}">
+              {{ unit.name }} <span class="arrow">&#9660;</span>
+            </a>
+            <!-- Unit Content -->
+            <div class="collapse" id="collapse{{unit.id}}">
+              <div class="card card-body">
+                {% for course in unit.courses %}
+                  <div class="course-item">
+                    <a href="{% url 'data_structure' course.id %}">
+                      {{ course.title }}
+                    </a>
+                  </div>
+                {% endfor %}
+              </div>
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
+

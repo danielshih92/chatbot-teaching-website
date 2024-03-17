@@ -2,10 +2,11 @@ from django.contrib import admin
 
 # Register your models here.
 
-from .models import Room, Topic, Message, User, Course
+from .models import Room, Topic, Message, User, Course, Lesson
 
 admin.site.register(User)
 admin.site.register(Room)
 admin.site.register(Topic)
 admin.site.register(Message)
 admin.site.register(Course)
+admin.site.register(Lesson)

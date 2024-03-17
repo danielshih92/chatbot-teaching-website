@@ -122,9 +122,13 @@ def book_learning(request):
 # 渲染資料結構課程
 def data_structure(request, course_id):
     course = get_object_or_404(Course, id=course_id)
+    full_courses = Course.objects.all()
     video_path = 'course_video/data_structure/video_{}.mp4'.format(course.id)
-    courses = Course.objects.all()
-    return render(request, 'base/data_structure_video.html', {'course': course, 'courses': courses, 'video_path': video_path})
+    context = {'full_courses' :full_courses,'course': course, 'video_path': video_path}
+
+    # 将units加入到上下文中
+    print(course.title)
+    return render(request, 'base/data_structure_video.html', context)
 
 @login_required(login_url='login')
 def createRoom(request):

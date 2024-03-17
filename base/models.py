@@ -72,3 +72,7 @@ class Message(models.Model):
 
 class Course(models.Model):
     title = models.CharField(max_length=200)
+
+class Lesson(models.Model):
+    title = models.CharField(max_length=200)
+    course = models.ForeignKey(Course, on_delete=models.CASCADE)
