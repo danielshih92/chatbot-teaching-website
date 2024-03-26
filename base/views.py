@@ -123,6 +123,7 @@ def book_learning(request):
 def data_structure(request, course_id):
     course = get_object_or_404(Course, id=course_id)
     full_courses = Course.objects.all()
+    full_lessons = course.lesson_set.all()
     video_path = 'course_video/data_structure/video_{}.mp4'.format(course.id)
     context = {'full_courses' :full_courses,'course': course, 'video_path': video_path}
 
@@ -223,3 +224,5 @@ def activityPage(request):
 
 def bot_chat(request):
     return render(request, 'base/bot_chat_room_no_use.html')
+
+
