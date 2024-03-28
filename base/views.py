@@ -4,7 +4,7 @@ from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.db.models import Q
 from django.contrib.auth import authenticate, login, logout
-from .models import Room, Topic, Message, User, Course
+from .models import Room, Topic, Message, User, Course, Lesson
 from .forms import RoomForm, UserForm, MyUserCreationForm
 
 
@@ -120,15 +120,19 @@ def book_learning(request):
     return render(request, 'base/book_learning.html')
 
 # 渲染資料結構課程
-def data_structure(request, course_id):
+def data_structure(request, course_id, lesson_id):
     course = get_object_or_404(Course, id=course_id)
+    lesson = get_object_or_404(Lesson, id=lesson_id)
     full_courses = Course.objects.all()
-    full_lessons = course.lesson_set.all()
-    video_path = 'course_video/data_structure/video_{}.mp4'.format(course.id)
-    context = {'full_courses' :full_courses,'course': course, 'video_path': video_path}
-
+    video_path = 'course_video/data_structure/course_{}/video_{}.mp4'.format(course.id,lesson.id)
+    context = {
+        'full_courses' :full_courses,
+        'course': course, 
+        'video_path': video_path, 
+        'lesson': lesson
+    }
+    print(context)
     # 将units加入到上下文中
-    print(course.title)
     return render(request, 'base/data_structure_video.html', context)
 
 @login_required(login_url='login')
