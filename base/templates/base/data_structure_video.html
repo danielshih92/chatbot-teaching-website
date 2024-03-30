@@ -1,13 +1,36 @@
 {% extends 'main_course.html' %}
 {% load static %}
+
+
 {% block content %}
 <!-- Sidebar -->
 <style>
+  h1{
+    color: white;
+  }
+  button{
+    color: white;
+    background-color: black;
+  }
+  .arrow.rotated {
+    transform: rotate(180deg);
+  }
   .my-element-background {
     background-color: #3f4156;
   }
-  h1{
-    color: white;
+  .course-item .btn {
+    margin-top: 6px;
+    margin-bottom: 6px;
+  }
+  .lesson-item a {
+  color: #e1f6fb;  /* Change the link color */
+  text-decoration: none;  /* Remove the underline */
+  font-family: Arial, sans-serif;  /* Change the font */
+  padding: 5px 10px;  /* Add some padding */
+  }
+
+  .lesson-item a:hover {
+    color: #71c6dd;  /* Change the link color on hover */
   }
 </style>
 
@@ -28,9 +51,7 @@
         <div class="course-list">
           {% for course in full_courses %}
           <div class="course-item">
-            <h3 data-toggle="collapse" data-target="#course-{{ course.id }}">
-              {{ course.title }}
-            </h3>
+            <button type="button" class="btn btn-secondary" data-toggle="collapse" data-target="#course-{{ course.id }}">{{ course.title }} &#9660;</button>
             <!-- Add a loop for lessons in the course -->
             <div id="course-{{ course.id }}" class="collapse lesson-list">
               {% for lesson in course.lesson_set.all %}
@@ -48,6 +69,25 @@
     </div>
   </div>
 </div>
+<script>
+  $(document).ready(function() {
+    $('button[data-toggle="collapse"]').on('click', function() {
+      var target = $(this).attr('data-target');
+      $(target).collapse('toggle');
+    });
+  });
+
+  // Add a function to rotate the arrow when the list is collapsed or expanded
+  $(document).ready(function() {
+    $('li[data-toggle="collapse"]').on('click', function() {
+      var target = $(this).attr('data-target');
+      $(target).collapse('toggle');
+      
+      // Rotate the arrow
+      $(this).children('.arrow').toggleClass('rotated');
+    });
+  });
+</script>
 {% endblock %}
 
 

@@ -132,6 +132,7 @@ def data_structure(request, course_id, lesson_id):
         'lesson': lesson
     }
     print(context)
+    print(lesson.title)
     # 将units加入到上下文中
     return render(request, 'base/data_structure_video.html', context)
 
