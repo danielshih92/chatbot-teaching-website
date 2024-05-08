@@ -1,10 +1,10 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.http import HttpResponse, JsonResponse
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.db.models import Q
 from django.contrib.auth import authenticate, login, logout
-from .models import Room, Topic, Message, User
+from .models import Room, Topic, Message, User, Course, Lesson
 from .forms import RoomForm, UserForm, MyUserCreationForm
 
 
@@ -60,8 +60,13 @@ def registerPage(request):
             login(request, user)
             return redirect('home')
         else:
-            messages.error(request, 'An error occurred during registration')
-        
+            password_errors = form.errors.get('password2')
+            if password_errors:
+                for error in password_errors:
+                    messages.error(request, error)
+            else:
+                messages.error(request, 'An error occurred during registration')
+            
     return render(request, 'base/login_register.html', {'form': form})
     
 
@@ -83,11 +88,6 @@ def home(request):
                'room_count': room_count, 'room_messages': room_messages}
     return render(request, 'base/home.html', context)
 
-#=======================================================================================================
-# openai 回復
-
-
-#=======================================================================================================
 def room(request, pk):
     room = Room.objects.get(id=pk)
     room_messages = room.message_set.all()
@@ -119,9 +119,23 @@ def userProfile(request, pk):
 def book_learning(request):
     return render(request, 'base/book_learning.html')
 
-def data_structure(request):
-    return render(request, 'base/data_structure.html')
-                  
+# 渲染資料結構課程
+def data_structure(request, course_id, lesson_id):
+    course = get_object_or_404(Course, id=course_id)
+    lesson = get_object_or_404(Lesson, id=lesson_id)
+    full_courses = Course.objects.all()
+    video_path = 'course_video/data_structure/course_{}/video_{}.mp4'.format(course.id,lesson.id)
+    context = {
+        'full_courses' :full_courses,
+        'course': course, 
+        'video_path': video_path, 
+        'lesson': lesson
+    }
+    print(context)
+    print(lesson.title)
+    # 将units加入到上下文中
+    return render(request, 'base/data_structure_video.html', context)
+
 @login_required(login_url='login')
 def createRoom(request):
     form = RoomForm()
@@ -215,3 +229,5 @@ def activityPage(request):
 
 def bot_chat(request):
     return render(request, 'base/bot_chat_room_no_use.html')
+
+

@@ -67,3 +67,11 @@ if (photoInput)
 // Scroll to Bottom
 const conversationThread = document.querySelector(".room__box");
 if (conversationThread) conversationThread.scrollTop = conversationThread.scrollHeight;
+
+// main_course.html
+$(document).ready(function() {
+  $('.arrow').click(function(event) {
+    event.preventDefault();
+    $(this).next('.hidden').toggle();
+  });
+});

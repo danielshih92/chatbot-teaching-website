@@ -1,61 +1,49 @@
-<!DOCTYPE html>
-<html lang="zh-Hant">
+{% extends 'main_course.html' %}
+{% load static %}
+{% block content %}
+<!-- Sidebar -->
+<style>
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Web Page</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-</head>
+</style>
 
-<body class="antialiased bg-gray-200">
-    <div class="container mx-auto">
-        <!-- Main content -->
-        <div class="py-10">
-            <div class="max-w-6xl mx-auto sm:px-6 lg:px-8">
-                <!-- Course Header -->
-                <div class="bg-white shadow overflow-hidden sm:rounded-lg">
-                    <div class="px-4 py-5 sm:px-6">
-                        <h3 class="text-lg leading-6 font-medium text-gray-900">
-                            資料結構 Data Structure
-                        </h3>
-                        <p class="mt-1 max-w-2xl text-sm text-gray-500">
-                            若要不只程式碼寫得好，還能寫得漂亮，資料結構是不可或缺的！
-                        </p>
-                    </div>
-                    <!-- Placeholder for Course Image -->
-                    <div class="border-t border-gray-200">
-                        <img src="https://placehold.co/600x400" alt="Placeholder image with a network of connected points and lines, representing data structures.">
-                    </div>
-                </div>
-                <!-- Progress Section -->
-                <div class="mt-5 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
-                    <!-- Progress Item -->
-                    <div class="bg-white overflow-hidden shadow rounded-lg">
-                        <div class="px-4 py-5 sm:p-6">
-                            <div class="flex items-center">
-                                <div class="flex-shrink-0 bg-indigo-500 rounded-full mr-3">
-                                    <svg class="h-10 w-10 text-white p-2" viewBox="0 0 20 20" fill="currentColor">
-                                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 0016 0h-8z" clip-rule="evenodd" />
-                                    </svg>
-                                </div>
-                                <div class="min-w-0 flex-1">
-                                    <p class="text-sm font-medium text-gray-900 truncate">
-                                        開課日期 2024-02-21 加入比較
-                                    </p>
-                                    <p class="text-sm text-gray-500">
-                                        <time datetime="2024-02-21">剩餘 0 天</time>
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- More progress items as necessary... -->
-                </div>
-            </div>
-        </div>
+
+<div class="container">
+  <div class="row">
+    <!-- Video Section -->
+    <div class="col-md-8">
+      <h1>{{ course.title }}</h1>
+      <video id="courseVideo" width="100%" controls>
+        <source src="{% static video_path %}" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
     </div>
-</body>
+    
+    <!-- Course List Section -->
+    <div class="col-md-4">
+      <div class="course-list">
+        {% for unit in units %}
+          <div class="unit-item">
+            <!-- Unit Header -->
+            <a data-toggle="collapse" href="#collapse{{unit.id}}" role="button" aria-expanded="false" aria-controls="collapse{{unit.id}}">
+              {{ unit.name }} <span class="arrow">&#9660;</span>
+            </a>
+            <!-- Unit Content -->
+            <div class="collapse" id="collapse{{unit.id}}">
+              <div class="card card-body">
+                {% for course in unit.courses %}
+                  <div class="course-item">
+                    <a href="{% url 'data_structure' course.id %}">
+                      {{ course.title }}
+                    </a>
+                  </div>
+                {% endfor %}
+              </div>
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
 
-</html>

@@ -1,0 +1,91 @@
+{% extends 'main_course.html' %}
+{% load static %}
+
+
+{% block content %}
+<!-- Sidebar -->
+<style>
+  h1{
+    color: white;
+  }
+  .arrow.rotated {
+    transform: rotate(180deg);
+  }
+  .my-element-background {
+    background-color: #3f4156;
+  }
+  .course-item .btn {
+    width: 100%;
+    margin-top: 6px;
+    margin-bottom: 6px;
+    background-color: #282938;
+  }
+  .lesson-item a {
+  color: #e1f6fb;  /* Change the link color */
+  text-decoration: none;  /* Remove the underline */
+  font-family: Arial, sans-serif;  /* Change the font */
+  padding: 5px 10px;  /* Add some padding */
+  }
+
+  .lesson-item a:hover {
+    color: #71c6dd;  /* Change the link color on hover */
+  }
+</style>
+
+<div class = "my-element-background">
+  <div class="container">
+    <div class="row">
+      <!-- Video Section -->
+      <div class="col-md-8">
+        <h1>{{ course.title }}</h1>
+        <video id="courseVideo" width="100%" controls>
+          <source src="{% static video_path %}" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+      </div>
+      
+      <!-- Course List Section -->
+      <div class="col-md-4">
+        <div class="course-list">
+          {% for course in full_courses %}
+          <div class="course-item">
+            <button type="button" class="btn btn-secondary" data-toggle="collapse" data-target="#course-{{ course.id }}">{{ course.title }} &#9660;</button>
+            <!-- Add a loop for lessons in the course -->
+            <div id="course-{{ course.id }}" class="collapse lesson-list">
+              {% for lesson in course.lesson_set.all %}
+                <div class="lesson-item">
+                  <a href="{% url 'data_structure' course_id=course.id lesson_id=lesson.id %}">
+                    {{ lesson.title }}
+                  </a>
+                </div>
+              {% endfor %}
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script>
+  $(document).ready(function() {
+    $('button[data-toggle="collapse"]').on('click', function() {
+      var target = $(this).attr('data-target');
+      $(target).collapse('toggle');
+    });
+  });
+
+  // Add a function to rotate the arrow when the list is collapsed or expanded
+  $(document).ready(function() {
+    $('li[data-toggle="collapse"]').on('click', function() {
+      var target = $(this).attr('data-target');
+      $(target).collapse('toggle');
+      
+      // Rotate the arrow
+      $(this).children('.arrow').toggleClass('rotated');
+    });
+  });
+</script>
+{% endblock %}
+
+

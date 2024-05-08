@@ -248,7 +248,22 @@ a {
   fill: var(--color-light);
 }
 
+.mobile-menu {
+  margin-bottom: 5rem;
+}
 
+.mobile-menuItems {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+
+@media screen and (min-width: 500px) {
+  .mobile-menu {
+    display: none;
+  }
+}
 
 /*==============================
 =>  Header Section

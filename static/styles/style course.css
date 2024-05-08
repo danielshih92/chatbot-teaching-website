@@ -20,6 +20,9 @@
 
 /*========== base styles ==========*/
 
+
+/*========== base styles ==========*/
+
 * {
   font-family: "DM Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans",
     "Helvetica Neue", sans-serif;
@@ -66,66 +69,12 @@ a {
   text-decoration: none;
 }
 
+
 /*========== components ==========*/
 .container {
   max-width: 120rem;
   width: 90%;
   margin: auto;
-}
-
-.btn {
-  background-color: transparent;
-  border: none;
-  display: inline-flex;
-  align-items: center;
-  gap: 1rem;
-  cursor: pointer;
-  transition: all ease-in-out 0.3s;
-  padding: 1rem 2rem;
-  border-radius: 5px;
-  box-shadow: 1px 1px 3px 1px rgba(0, 0, 0, 0.15);
-  font-weight: 500;
-}
-
-.btn--link {
-  border-radius: 0;
-  padding: 0;
-  color: var(--color-main);
-  box-shadow: none;
-}
-
-.btn--link:hover {
-  text-decoration: underline;
-}
-
-.btn--main {
-  background-color: var(--color-main);
-  color: var(--color-dark);
-}
-
-.btn:hover {
-  opacity: 0.9;
-}
-
-.btn--dark {
-  background-color: var(--color-dark-light);
-  color: var(--color-light);
-}
-
-.btn > svg {
-  fill: currentColor;
-  width: 1.6rem;
-  height: 1.6rem;
-}
-
-.btn--pill {
-  border-radius: 10rem;
-  font-size: 1.4rem;
-  font-weight: 700;
-  padding: 6px 2.5rem;
-  color: var(--color-main);
-  background: transparent;
-  border: 2px solid var(--color-main);
 }
 
 .action-button {
@@ -246,23 +195,6 @@ a {
 
 .dropdown-menu a svg {
   fill: var(--color-light);
-}
-
-.mobile-menu {
-  margin-bottom: 5rem;
-}
-
-.mobile-menuItems {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 1rem;
-}
-
-@media screen and (min-width: 500px) {
-  .mobile-menu {
-    display: none;
-  }
 }
 
 /*========== chat_app ==========*/
@@ -585,4 +517,97 @@ a {
 
 .dropdown-button:hover svg {
   fill: var(--color-main);
+}
+
+/*==============================
+=>  Course Section
+================================*/
+
+
+body, html {
+  height: 100%;
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
+
+.navbar {
+  background-color: #333;
+  color: white;
+  padding: 10px;
+  text-align: center;
+}
+
+.main-content {
+  width: 70%;
+  float: left;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.main-content img {
+  width: 50%;
+  height: auto;
+}
+
+.sidebar {
+  width: 30%;
+  float: right;
+  padding: 20px;
+  box-sizing: border-box;
+  background-color: #f4f4f4;
+}
+
+.progress-container {
+  text-align: center;
+}
+
+.progress-circle {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background-color: #eee;
+  line-height: 100px;
+  text-align: center;
+  margin: 0 auto;
+  position: relative;
+  font-size: 24px;
+  color: #333;
+}
+
+.progress-circle:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: conic-gradient(#f00 0%, #f00 1%, #fff 1%, #fff 100%);
+  mask: radial-gradient(farthest-side, #0000 calc(100% - 9px), #000 0);
+}
+
+.progress-button {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  margin-top: 20px;
+  background-color: #00f;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+/* Clear floats */
+.clearfix::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+@media screen and (max-width: 768px) {
+  .main-content, .sidebar {
+      width: 100%;
+      float: none;
+  }
 }
