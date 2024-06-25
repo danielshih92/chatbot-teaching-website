@@ -10,7 +10,6 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 
-import os
 from pathlib import Path
 import os
 from dotenv import load_dotenv
@@ -97,9 +96,11 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'UserDataStore',
-        'USER': 'root',
+        'USER': 'remote_user',
+                #'root'本地端資料庫名稱
         'PASSWORD': 'danielshih92',
-        'HOST': 'localhost',
+        'HOST': '192.168.1.104',
+                #'localhost' 本地端資料庫ip地址 
         'PORT': '3306',
     }
 }
