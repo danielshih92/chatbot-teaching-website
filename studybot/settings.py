@@ -96,11 +96,11 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'UserDataStore',
-        'USER': 'remote_user',
-                #'root'本地端資料庫名稱
+        'USER': 'root',
+                #'root'本地端資料庫名稱, remote_user 遠端資料庫名稱
         'PASSWORD': 'danielshih92',
-        'HOST': '192.168.1.104',
-                #'localhost' 本地端資料庫ip地址 
+        'HOST': 'localhost',
+                #'localhost' 本地端資料庫ip地址 , 192.168.1.104
         'PORT': '3306',
     }
 }
